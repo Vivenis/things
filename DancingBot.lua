@@ -120,24 +120,36 @@ end
 
 -- commands detection
 OwnerInstance.Chatted:Connect(function(msg)
-    if CommandRunning then
+    local msg = string.split(msg," ")
+	if msg[1] == ".cartwalk" then
+	    if CommandRunning then
 	CommandRunning = false
 	task.wait(0.5)
 	end
-    local msg = string.split(msg," ")
-	if msg[1] == ".cartwalk" then
 	   CommandRunning = true
 	   CartMove(tonumber(msg[2]))
 	end
 	if msg[1] == "s" then
+	    if CommandRunning then
+	CommandRunning = false
+	task.wait(0.5)
+	end
 	   CommandRunning = true
 	   Summon(msg[2])
 	end
 	if msg[1] == ".statue" then
+	    if CommandRunning then
+	CommandRunning = false
+	task.wait(0.5)
+	end
 	   CommandRunning = true
 	   Statue()
 	end
 	if msg[1] == ".stop" then
+	    if CommandRunning then
+	CommandRunning = false
+	task.wait(0.5)
+	end
 	   CommandRunning = false
 	end
 end)
