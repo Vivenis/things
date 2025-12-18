@@ -35,7 +35,7 @@ local CartMove = function(speed)
 	LocalPlayer.Character:PivotTo(workspace.Ignored.Shop["[FoodsCart] - $16"]:FindFirstChildOfClass("Part").CFrame)
 	end
     fireclickdetector(workspace.Ignored.Shop["[FoodsCart] - $16"].ClickDetector)
-	local Cart = workspace.OldVehicles:WaitForChild(LocalPlayer.Name..."BIKE")
+	local Cart = workspace.OldVehicles:WaitForChild(LocalPlayer.Name.."BIKE")
 	for i = 1,5 do
 	Cart:WaitForChild("VehicleSeat"):Sit(LocalPlayer.Character.Humanoid)
 	LocalPlayer.Character:PivotTo(Cart:WaitForChild("VehicleSeat").CFrame)
@@ -160,9 +160,7 @@ task.spawn(function()
 
 while true do 
 pcall(function()
-local Animation = Instance.new("Animation")
-Animation.AnimationId = AnimationList[math.random(1,#AnimationList)]
-local AnimationLoaded = Animate(Animation)
+local AnimationLoaded = Animate(AnimationList[math.random(1,#AnimationList)])
 AnimationLoaded.Looped = true
 AnimationLoaded:Play()
 task.wait(5)
