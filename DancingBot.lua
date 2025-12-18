@@ -16,7 +16,9 @@ local OwnerInstance = game.Players:WaitForChild(Owner)
 local CommandRunning = false
 -- Commands
 local Animate = function(AnimationId)
-	local AnimationLoaded = LocalPlayer.Character.Humanoid:LoadAnimation(AnimationId)
+    local Animation = Instance.new("Animation")
+	Animation.AnimationId = AnimationId
+	local AnimationLoaded = LocalPlayer.Character.Humanoid:LoadAnimation(Animation)
 	AnimationLoaded.Priority = Enum.AnimationPriority.Action4
 	return AnimationLoaded
 end
